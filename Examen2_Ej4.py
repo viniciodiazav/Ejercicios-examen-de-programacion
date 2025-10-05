@@ -1,4 +1,5 @@
 #Ejercicio 4
+
 peliculasDisponibles = [
     {"titulo": "Cars 2", "director": "John Lasseter y Brad Lewis", "año": 2011, "duracion": 106},
     {"titulo": "El Mago de Oz", "director": "Victor Fleming", "año": 1939, "duracion": 102},
@@ -26,26 +27,24 @@ while True:
             print("\n====== Peliculas disponibles ======")
             print("Peliculas disponibles:", len(peliculasDisponibles))
             contador = 1
-            for pd in peliculasDisponibles:
-                print(f"{contador}.", pd)
+            for peliculaDisponible in peliculasDisponibles:
+                print(f"{contador}.", peliculaDisponible)
                 contador += 1
-            contador = 1
         case "2":
             print("\n====== Alquilar pelicula ======")
             if (len(peliculasDisponibles) > 0):
                 contador = 1
-                for pd in peliculasDisponibles:
-                    print(f"{contador}.", pd["titulo"])
+                for peliculaDisponible in peliculasDisponibles:
+                    print(f"{contador}.", peliculaDisponible["titulo"])
                     contador += 1
-                contador = 1
-                nombrePelicula = input("Ingrese el nombre de la pelicula que desee: ").lower()
+                nombrePelicula = input("Ingrese el titulo de la pelicula que desee: ").lower()
                 peliculaEncontrada = False
-                for pd in peliculasDisponibles:
-                    if (nombrePelicula == pd["titulo"].lower()):
-                        peliculasAlquiladas.append(pd)
-                        peliculasDisponibles.remove(pd)
+                for peliculaDisponible in peliculasDisponibles:
+                    if (nombrePelicula == peliculaDisponible["titulo"].lower()):
+                        peliculasAlquiladas.append(peliculaDisponible)
+                        peliculasDisponibles.remove(peliculaDisponible)
                         peliculaEncontrada = True
-                if (not peliculaEncontrada):
+                if (peliculaEncontrada == False):
                     print("No se encontro la pelicula con el nombre", nombrePelicula)
             else:
                 print("Ya no hay peliculas disponibles")
@@ -53,26 +52,24 @@ while True:
             print("\n====== Peliculas alquiladas ======")
             print("Peliculas alquiladas:", len(peliculasAlquiladas))
             contador = 1
-            for pa in peliculasAlquiladas:
-                print(f"{contador}.", pa)
+            for peliculaAlquilada in peliculasAlquiladas:
+                print(f"{contador}.", peliculaAlquilada)
                 contador += 1
-            contador = 1
         case "4":
             if (len(peliculasAlquiladas) > 0):
                 print("\n====== Devolver pelicula alqiulada ======")
                 contador = 1
-                for pa in peliculasAlquiladas:
-                    print(f"{contador}.", pa["titulo"])
+                for peliculaAlquilada in peliculasAlquiladas:
+                    print(f"{contador}.", peliculaAlquilada)
                     contador += 1
-                contador = 1
-                nombrePelicula = input("Ingrese el nombre de la pelicula que desee: ").lower()
+                nombrePelicula = input("Ingrese el titulo de la pelicula que desee: ").lower()
                 peliculaEncontrada = False
-                for pa in peliculasAlquiladas:
-                    if (nombrePelicula == pa["titulo"].lower()):
-                        peliculasDisponibles.append(pd)
-                        peliculasAlquiladas.remove(pd)
+                for peliculaAlquilada in peliculasAlquiladas:
+                    if (nombrePelicula == peliculaAlquilada["titulo"].lower()):
+                        peliculasDisponibles.append(peliculaDisponible)
+                        peliculasAlquiladas.remove(peliculaDisponible)
                         peliculaEncontrada = True
-                if (not peliculaEncontrada):
+                if (peliculaEncontrada == False):
                     print("No se encontro la pelicula con el nombre", nombrePelicula)
             else:
                 print("Todavia no alquila ninguna pelicula")

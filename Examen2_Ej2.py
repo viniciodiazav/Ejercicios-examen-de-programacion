@@ -4,15 +4,16 @@ import random
 
 carpetas = ["carpeta 1", "carpeta 2", "carpeta 3", "carpeta 4", "carpeta 5", "carpeta 6"]
 
-archivoSeleccionado = f"carpeta {random.randint(0,10)}"
+archivoABuscar = f"carpeta {random.randint(1,10)}"
 
 archivoEncontrado = False
 for carpeta in carpetas:
-    if (carpeta == archivoSeleccionado):
-        print("======== El archivo se encontro en la", carpeta, "========")
+    if (archivoABuscar == carpeta):
+        print("El archivo se encuentra en la", carpeta)
         archivoEncontrado = True
+        break
     else:
         print("El archivo no se encuentra en la", carpeta)
 
-if (not archivoEncontrado):
-    print("El archivo no se encontro en ninguna carpeta")
+if (archivoEncontrado == False):
+    print("\nEl archivo no se encotnro en ninguna carpeta")
